@@ -89,7 +89,20 @@ El motor de accesibilidad más visible de Byfrost: transcribe la voz del docente
 
 ## Capturas
 
-_Próximamente._
+**Landing page**
+![Landing de Byfrost](landing-hero.png)
+
+**Panel del docente**
+![Panel de control del docente](app-dashboard-docente.png)
+
+**Subtítulos y resúmenes de clase (Huginn/Odin)**
+![Resúmenes de clase con subtítulos](app-resumenes.png)
+
+**Estructura de calificaciones**
+![Estructura de calificaciones](app-calificaciones.png)
+
+**Horario**
+![Horario del docente](app-horario.png)
 
 ---
 
