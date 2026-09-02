@@ -53,7 +53,7 @@ El ecosistema adopta una metáfora de la mitología nórdica para organizar conc
 - **Midgard — Frontend Web**: React 19, TypeScript, Vite, Tailwind CSS, Framer Motion, TanStack Query, i18next. SPA modular por dominios funcionales, multi-idioma, modo oscuro.
 - **Ratatoskr — API Gateway**: NGINX (Alpine / Reverse Proxy). Punto único de entrada HTTP/WebSocket, rate limiting, cabeceras de seguridad y CORS.
 - **Aesir — Core Backend**: Java 21, Spring Boot 3.5, JPA/Hibernate, Lombok, JJWT, Argon2id. Monolito modular organizado en dominios independientes.
-- **Odin — AI & Audio Streaming**: Python 3.11+, FastAPI, WebSockets. Servicio de IA en tiempo real para transmisión de audio de clases, síntesis de voz y accesibilidad.
+- **Odin — AI & Audio Streaming**: Python 3.11+, FastAPI, WebSockets. Servicio de IA en tiempo real que aloja dos motores: transcripción en vivo (Huginn) y analítica predictiva.
 - **Byfrost Data**: PostgreSQL 16 + Redis 7.
 
 ### Módulos de negocio (Aesir)
@@ -66,6 +66,15 @@ El ecosistema adopta una metáfora de la mitología nórdica para organizar conc
 | **Hermod** | Motor de notificaciones (SSE + email) y CRM de admisiones |
 | **Idunn** | Suscripciones institucionales, planes y facturación SaaS |
 | **Sigrun** | Inclusión escolar — Planes Individuales de Ajustes Razonables (PIAR) |
+
+### Huginn — Subtitulado en tiempo real (dentro de Odin)
+
+El motor de accesibilidad más visible de Byfrost: transcribe la voz del docente en el aula y la envía como subtítulos en vivo a la tableta del estudiante sordo, con una latencia objetivo menor a 2 segundos.
+
+- Captura de audio por WebSocket, nunca se guarda en disco crudo
+- Pipeline de voz-a-texto + limpieza con IA (elimina muletillas y ruido verbal en tiempo real)
+- Al cerrar la clase, la transcripción se cifra con una llave por institución (gestionada por Heimdall) antes de persistirse
+- Diseñado para operar con proveedores intercambiables (nube en piloto, modelos locales en producción) sin cambiar código
 
 ---
 
@@ -86,4 +95,4 @@ _Próximamente._
 
 ## Contacto
 
-👤 [Iván Ruiz](https://github.com/IvanByfrost) · [LinkedIn](https://www.linkedin.com/in/ivandarioruizvelasquez-devdesign/?locale=en_US) · [Email](mailto:idruizv@gmail.com)
+👤 [Iván Ruiz](https://github.com/IvanByfrost) · [LinkedIn](https://www.linkedin.com/in/ivanruiz-edtech/) · [Email](mailto:idruizv@gmail.com)
